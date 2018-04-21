@@ -1,1 +1,13 @@
-<h1>Hello!</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="text-center" style="height:100%; display:flex">
+<form style="width: 100%; max-width: 330px; padding: 15px; margin: auto;" action="waitingforplayers">
+      <img class="mb-4" src="https://cdn.pixabay.com/photo/2018/04/15/16/27/silhouette-3322007_1280.png" alt="" width="200" height="200">
+      <label for="inputEmail" class="sr-only">Game Key</label>
+      <input type="text" id="gameKey" class="form-control" name="gameKey" placeholder="Game Key" required autofocus>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Create/Join Game</button>
+    </form>
+</div>
+{% endblock %}

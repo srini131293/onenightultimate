@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>
+	Game Key: {{gameKey}}
+</h1>
+
+<ul>
+{% for member in members %}
+<li>{{member.member.username}}</li>
+{% endfor %}
+</ul>
+
+{% if request.user == game.created_by %}
+<form style="width: 100%; max-width: 330px; padding: 15px; margin: auto;" action="pickingcharacters">
+	<input name="gameKey" type="hidden" value="{{gameKey}}">
+<button class="btn btn-lg btn-primary btn-block" type="submit">Start Game</button>
+</form>
+{% else %}
+<form style="width: 100%; max-width: 330px; padding: 15px; margin: auto;" action="viewingcharacters">
+	<input name="gameKey" type="hidden" value="{{gameKey}}">
+<button class="btn btn-lg btn-primary btn-block" type="submit" {% if game.state != 'VI' %}disabled{% endif %}>Start Game</button>
+</form>
+{% endif %}
+
+{% endblock %}

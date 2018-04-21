@@ -13,6 +13,6 @@ import werewolf.views
 
 urlpatterns = [
     url(r'^$', werewolf.views.index, name='index'),
-    url(r'^db', hello.views.db, name='db'),
+    url(r'^waitingforplayers$', werewolf.views.waitingforplayers, name='waitingforplayers'),
     path('admin/', admin.site.urls),
 ]
